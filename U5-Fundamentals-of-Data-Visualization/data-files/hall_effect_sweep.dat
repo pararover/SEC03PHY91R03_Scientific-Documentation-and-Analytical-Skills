@@ -1,0 +1,35 @@
+# Hall Effect Sweep - Gaussmeter/Nanovoltmeter Log
+# Apparatus: Hall probe, constant-current source, digital gaussmeter
+# Date: 2026-07-30   Current_mA: 5.00   Sample: Ge (demo)
+# Columns: Sweep   Field_mT   Hall_Voltage_mV
+#
+  Up    0.0     0.0723
+  Up    20.0     3.0760
+  Up    40.0     6.0750
+  Up    60.0     9.0696
+  Up    80.0    12.0808
+  Up   100.0    15.0832
+  Up   120.0    18.0756
+  Up   140.0    21.0883
+  Up   160.0    24.0849
+  Up   180.0    27.0838
+  Up   220.0	33.0857
+  Up   240.0    36.0720
+  Up   260.0    39.0837
+  Up   280.0    42.0836
+  Up   300.0    45.0694
+Down   300.0    45.1021
+Down   280.0    42.0985
+Down   260.0    39.1047
+Down   240.0    36.0974
+Down   200.0    30.1021
+Down   180.0	27.0947
+Down   160.0    24.1036
+Down   140.0    21.0994
+Down   120.0    18.1030
+Down   100.0    15.0969
+Down    80.0    12.1065
+Down    60.0     9.1036
+Down    40.0     6.0989
+Down    20.0     3.1038
+Down     0.0     0.1076
