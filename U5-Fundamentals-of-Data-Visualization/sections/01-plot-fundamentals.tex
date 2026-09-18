@@ -7,7 +7,7 @@
 		\includegraphics[width=0.8\textwidth]{figures/fig_samples-folder.png}
 	\end{figure}
 	
-	\subsection{Plotting the first graph}
+	\subsection{Plotting the first graph} \label{ssec:first-graph}
 		
 		\subsubsection{Importing data from sample folder}
 			\begin{enumerate}[I.]
@@ -80,16 +80,62 @@
 				\end{figure}
 				
 				\newpage
-				\item Click on the plot background (ensure that the plot or the gridlines are not clicked), click on \verb|Layer Background Color| and then select some background colour, such as light yellow.
+				\item Click on the plot background (ensure that the plot or the gridlines are not clicked), click on \verb|Layer Background Color| and then select some background colour, such as light yellow.\vspace{-3ex}
 				\begin{figure}[h!]
 					\centering
-					\includegraphics[width=0.5\textwidth,frame]{figures/fig_plot-basic-custom-05.png}
+					\includegraphics[width=0.45\textwidth,frame]{figures/fig_plot-basic-custom-05.png}
+					\hfill
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-06.png}
 				\end{figure}
 				
-				\item Finally we obtain a plot with better aesthetics.
+				\item We can create a bounding box by displaying opposite axes and removing the tick marks. To do so, we click on any of the tick labels on the $x$-axis and then click \verb|Show Opposite Axis| on the pop-up menu. On the pop-up menu of the opposite axis, we click on the \verb|Tick Style| button and then on \verb|None|.\vspace{-1.5ex}
 				\begin{figure}[h!]
 					\centering
-					\includegraphics[width=0.6\textwidth]{figures/fig_plot-basic-custom-06.png}
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-07.png}
+					\hfill
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-08.png}
+				\end{figure}
+				
+				\item Repeating the above step for the $y$-axis gives us the desired bounding box around the graph.\vspace{-3ex}
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.5\textwidth]{figures/fig_plot-basic-custom-09.png}
+				\end{figure}
+				
+				\item We can remove the graph legend by clicking on it and pressing the delete button on the keyboard.\vspace{-2ex}
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-10.png}
+					\hfill
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-11.png}
+				\end{figure}
+				
+				\item To modify the typeface of the tick labels, we click on any of the tick labels and on the pop-up menu, we set the font size (here, 22) and the font (here, Cambria). Likewise, we click on the axis label and on the pop-up menu, we set the font size (here, 26) and the font (here, Cambria).\vspace{-2ex}
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-12.png}
+					\hfill
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-13.png}
+				\end{figure}
+				
+				\item We repeat the above step for the $y$-axis tick and axis labels to obtain a graph with the desired aesthetics.\vspace{-2ex}
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.5\textwidth]{figures/fig_plot-basic-custom-14.png}
+				\end{figure}
+				
+				\item Finally, export the graph into an image file, we right-click on the graph's title bar, and then click on \verb|Export Graph as Image|. Then in the export graph dialog, we set \verb|Image Type = PNG|, \verb|File Name| as appropriate (here, \verb|my-line-plot|), and \verb|File Path| to be the appropriate folder (here, \verb|Desktop|). Clicking on \verb|OK| will export the graph into a PNG file.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-15.png}
+					\hfill
+					\includegraphics[width=0.45\textwidth]{figures/fig_plot-basic-custom-16.png}
+				\end{figure}
+				
+				\item Finally we obtain the plot file which can now be included in a document as required.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.6\textwidth,frame]{figures/fig_plot-basic-custom-17.png}
 				\end{figure}
 			\end{enumerate}
 			
@@ -142,4 +188,4 @@
 				\end{figure}
 			\end{enumerate}
 	
-	\subsection{Batch plotting}
+	%\subsection{Batch plotting}
