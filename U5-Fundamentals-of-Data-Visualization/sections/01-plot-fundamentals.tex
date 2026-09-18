@@ -92,3 +92,54 @@
 					\includegraphics[width=0.6\textwidth]{figures/fig_plot-basic-custom-06.png}
 				\end{figure}
 			\end{enumerate}
+			
+	\newpage
+	\subsection{Using graph templates}
+		A template is a pre-made pattern, model, or mold used as a guide to make multiple identical or similar things. Origin allows us to prepare a graph template based on a graph which is customized according to our requirements. Then later, we can use this template to quickly make identical customizations on other graphs.
+		
+		\subsubsection{Creating a graph template}
+			\begin{enumerate}[I.]
+				\item We start with a graph that we have customized as per our requirement.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.6\textwidth]{figures/fig_graph-template-01.png}
+				\end{figure}
+				
+				\item To use this graph as a template, we right-click on the graph's title bar, and then click on \verb|Save Template As...| from the context menu.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.5\textwidth]{figures/fig_graph-template-02.png}
+				\end{figure}
+				
+				\newpage
+				\item In the save template dialog, we enter the name of the template,\\ for example \verb|Template Name = My Line|. Then we click \verb|OK|.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.5\textwidth]{figures/fig_graph-template-03.png}
+				\end{figure}
+			\end{enumerate}
+			
+		\subsubsection{Applying a graph template}
+			\begin{enumerate}
+				\item Suppose in a different Origin workbook, we wish to plot some other graph using the above template. For example, we can drag and drop the \verb|Exponential Decay.dat| file from the \verb|Samples| \verb|>| \verb|Curve Fitting| folder into the workbook.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.8\textwidth]{figures/fig_graph-template-04.png}
+				\end{figure}
+				
+				\newpage
+				\item In order to plot the data in column C, we click on that column's header. Then from the main menu, we click \verb|Plot| \verb|>| \verb|User Templates| \verb|>| \verb|My Line|.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.4\textwidth]{figures/fig_graph-template-05.png}
+					\includegraphics[width=0.5\textwidth]{figures/fig_graph-template-06.png}
+				\end{figure}
+				
+				\item This gives us the desired plot which is customized as per the saved graph template. We can find that the plotting style of this graph is identical to the one which we started with.
+				\begin{figure}[h!]
+					\centering
+					\includegraphics[width=0.6\textwidth]{figures/fig_graph-template-07.png}
+				\end{figure}
+			\end{enumerate}
+	
+	\subsection{Batch plotting}
