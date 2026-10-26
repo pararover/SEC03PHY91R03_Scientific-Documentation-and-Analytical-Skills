@@ -1,3 +1,90 @@
 \section{Plain text formatting}
-
-	Insert section content.
+	In digital document processing, \emph{plain text} refers to a raw, unformatted sequence of human-readable characters (such as standard ASCII or Unicode) that contains no embedded visual styling, font specifications, or proprietary binary metadata. When we format plain text in \LaTeX\, we write our narrative inside a plain-text file and embed logical markup commands directly alongside the content.
+	
+	\subsection{Whitespaces and newlines}
+		In \LaTeX, whitespace characters (namely spaces and tabs) and newline characters (line breaks or `enter') in the plain-text source code are interpreted according to predefined typographic rules rather than appearing literally on the output page.
+		
+		\subsubsection{Handling of whitespaces}
+			\begin{itemize}
+				\item A single space typed in the source code renders as a standard inter-word space in the output document.
+				\item Multiple consecutive spaces or tabs are automatically collapsed and treated as a single space by the compiler.
+				\item Following a macro without any arguments(such as \lstinline|\LaTeX| or \lstinline|\TeX|), any trailing spaces in the source code are ignored by default.
+				\item To force a space after such a macro, an empty pair of braces (e.g. \lstinline|\LaTeX{}|) or an explicit control space (e.g. \lstinline|\LaTeX\ |) can be used.
+			\end{itemize}
+			
+			For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-whitespaces.tex}
+			produces the following output:
+			\lstoutput{codes/snippet-whitespaces.tex}
+		
+		\subsubsection{Handling of newlines}
+			\begin{itemize}
+				\item A single newline (or line break) in the plain text is treated merely as an inter-word space. Consequently, breaking a sentence across multiple lines in the source editor does not force a line break in the compiled PDF.
+				\item One or more empty line (i.e. two or more consecutive newlines) in the plain text denotes a paragraph break.
+				\item Alternatively, the \lstinline|\par| macro can be used, which is functionally equivalent to an empty line.
+				\item Upon encountering a paragraph break, \LaTeX\ applies default paragraph formatting, such as first-line paragraph indentation (\lstinline|\parindent|) or vertical spacing between paragraphs (\lstinline|\parskip|).
+				\item To force a line break without starting a new paragraph, macros such as \lstinline|\\| or \lstinline|\newline| can be used. Because these macros terminate a line within the same logical paragraph, the subsequent line is not indented as a new paragraph.
+			\end{itemize}
+			
+			For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-newlines.tex}
+			produces the following output:
+			\lstoutput{codes/snippet-newlines.tex}
+	
+	\subsection{Hyphens and dashes}
+		In \LaTeX, horizontal lines of varying lengths are treated distinctly according to their grammatical function. Rather than relying on a single hyphen character for all purposes, \LaTeX\ distinguishes between three primary horizontal marks based on source syntax and context.
+		
+		\begin{enumerate}
+			\item \emph{The hyphen} -\\
+			This is a single dash \lstinline|-| typed in standard text mode, used for joining compound words (e.g. `well-known', `so-called').
+			
+			\item \emph{The en-dash} --\\
+			This is composed of two consecutive dashes \lstinline|--| typed in standard text mode or the macro \lstinline|\textendash|, used primarily to indicate numerical, page or time ranges (e.g. `pages 10--20', `1990--2000') and to link equal partners or names in concepts (e.g. `Boyle--Mariotte law').
+			
+			\item \emph{The em-dash} ---\\
+			This is composed of three consecutive dashes \lstinline|---| typed in standard text mode or the macro \lstinline|\textemdash|, used to mark an abrupt pause, a shift in thought or a parenthetical remark within a sentence (e.g. `\LaTeX---a typesetting system---is powerful').
+		\end{enumerate}
+		
+		For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-hyphens.tex}
+		produces the following output:
+		\lstoutput{codes/snippet-hyphens.tex}
+	
+	\subsection{Quotation marks}
+		In \LaTeX, quotation marks require specific handling to ensure proper typographical opening and closing glyphs. Standard typewriter double quotes (") should not be used in standard text flow, as they produce straight quotes rather than proper curly quotation marks. \LaTeX\ uses grave accents (backticks) for opening quotes and apostrophes for closing quotes as follows:
+		\begin{itemize}
+			\item Single opening quote is a single grave accent or backtick (\lstinline|`|).
+			\item Single closing quote is a single apostrophe or right quote (\lstinline|'|).
+			\item Double opening quotes are two consecutive grave accents or backticks (\lstinline|``|).
+			\item Double closing quotes are two consecutive apostrophes or right quotes (\lstinline|''|).
+		\end{itemize}
+		
+		For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-quotes.tex}
+		produces the following output:
+		\lstoutput{codes/snippet-quotes.tex}
+	
+	\subsection{Special reserved characters}
+		In \LaTeX, plain-text input is interpreted through a set of syntax rules where certain symbols serve as control characters rather than literal printable text. Ten specific characters are reserved by the \TeX\ engine for formatting, command execution, and structural scoping.
+		
+		\subsubsection{Reserved characters}
+			Each of the following reserved characters carries a dedicated syntactic role within \LaTeX\ source code:
+			\begin{enumerate}
+				\item Backslash (\verb|\|) starts a \LaTeX\ macro or environment declaration.
+				\item Braces (\verb|{| and \verb|}|) enclose mandatory command arguments, group text or delimit local scopes.
+				\item Percentage sign (\verb|%|) introduces a single-line comment; \LaTeX\ ignores everything following the \verb|%| symbol until the end of the line.
+				\item Dollar sign (\verb|$|) marks the beginning and end of inline math mode.
+				\item Ampersand (\verb|&|) acts as an alignment or column separator within tabular material, matrices and math alignment environments.
+				\item Hash sign (\verb|#|) references macro parameter positions (such as \verb|#1| or \verb|#2|) when defining new commands.
+				\item Underscore (\verb|_|) specifies subscripts in mathematical expressions.
+				\item Caret (\verb|^|) specifies superscripts in mathematical expressions.
+				\item Tilde (\verb|~|) inserts a non-breaking (unbreakable) inter-word space that prevents line breaks between words.
+			\end{enumerate}
+			
+		\subsubsection{Escaping reserved characters}
+			To print these reserved characters as literal text in the output, seven of them can be printed simply by placing a preceding backslash (\verb|\|) before the character, as shown below:
+			\begin{verbatim}
+						\%   \$   \&   \#   \_   \{   \}
+			\end{verbatim}
+			which produces the following output:
+			\lstoutput{codes/snippet-escape.tex}
