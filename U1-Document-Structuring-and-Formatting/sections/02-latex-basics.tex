@@ -1,0 +1,62 @@
+\section{Working with a \LaTeX\ document}
+	\subsection{Building blocks of a \LaTeX\ document}
+		In \LaTeX, \emph{macros} (also called \emph{commands}) and \emph{environments} are the two fundamental building blocks used to define the structure, styling and behaviour of a document.
+		
+		\subsubsection{Macros in \LaTeX}
+			A \emph{macro} is a single instruction given to the \LaTeX\ compiler to perform a specific action, insert content or change a setting. All macros begin with a backslash (\textbackslash), followed by a descriptive name consisting of letters or a single special character, for example \lstinline|\section|.
+			
+			Macros can accept \emph{arguments} to control their behaviour. There are two types of arguments that can be passed to a macro:
+			\begin{enumerate}
+				\item \emph{Mandatory arguments} are enclosed in braces \{ \}. The macro will fail or behave incorrectly if these are omitted.
+				
+				\item \emph{Optional arguments} are enclosed in brackets [ ]. If omitted, \LaTeX\ uses a default value.
+			\end{enumerate}
+			
+			In general, we have the following three variations in the syntax of macros:
+\begin{lstlisting}
+\macro
+\macro{mandatory arguments}
+\macro[optional arguments]{mandatory arguments}
+\end{lstlisting}
+			where the mandatory and optional arguments are separated by commas. For example, in the macro \lstinline|\documentclass[12pt,a4paper]{article}|, \verb|article| is a mandatory argument while \verb|12pt| and \verb|a4paper| are optional arguments.
+			
+		\subsubsection{Environments in \LaTeX}
+			An \emph{environment} is a delimited block of code that applies specific structural rules, formatting, or layout settings to a specific region of content. Every environment starts with \lstinline|\begin{name}| macro and ends with a matching \lstinline|\end{name}| macro. Both macros require the exact same environment name as their argument.
+			
+			Environments establish a \emph{local scope}. Any formatting changes, counters or local declarations activated within an environment are automatically cancelled when the \lstinline|\end{name}| macro is reached.
+			
+			Environments can also accept mandatory \{ \} and optional [ ] arguments immediately following the \lstinline|\begin{name}| macro.
+				
+			In general, we have the following syntax for an environment:
+\begin{lstlisting}
+\begin{environment}[optional arguments]{mandatory arguments}
+	<Content affected by the environment>
+\end{environment}
+\end{lstlisting}
+			where again the mandatory and optional arguments are separated by commas. For example, in the following environment which creates a table
+\begin{lstlisting}
+\begin{tabular}[t]{ccc}
+	abc & xy & def \\
+	xyz & mn & pqr
+\end{tabular}
+\end{lstlisting}
+			\verb|ccc| is a mandatory argument that creates three centre-aligned columns and \verb|t| is an optional argument that specifies the vertical alignment of the table.
+
+	\subsection{Structure of a \LaTeX\ document}
+		The simplest \LaTeX\ document must contain the bare minimum code, as shown below. The text \verb|Hello, world!| can be replaced with any other text.
+\lstinputlisting{codes/demo-project.tex}
+
+		\subsubsection{The preamble}
+			Every \LaTeX\ document is an instance of a template known as a \emph{class}, which provides customizable features. There are classes for books, journal articles, letters, presentations, posters, and many more. With the macro in the first line \lstinline|\documentclass{article}|, we have chosen the \verb|article| class, which provides a standard \LaTeX\ template for smaller document.
+			
+			We can also specify document properties using macros such as \lstinline|\title|, \lstinline|\author|, \lstinline|\date| and any other general document-wide definitions.
+			
+			This part of the document is known as the \textbf{preamble}.
+\lstinputlisting[linerange={1-4}]{codes/demo-project.tex}
+
+		\subsubsection{The document body}
+			The \lstinline|\begin{document}| macro demarcates the end of the preamble and the beginning of the actual document, while the \lstinline|\end{document}| macro marks its end. Everything within this \verb|document| environment appears in the document output. Here we create a title page using the \lstinline|\maketitle| macro, a section titled \verb|Introduction| using the \lstinline|\section| macro and some text.
+			
+			This part of the document contained within the \verb|document| environment is known as the \textbf{document body}.
+\lstinputlisting[linerange={6-11}]{codes/demo-project.tex}
+			Everything that follows the document body is ignored by \LaTeX.
