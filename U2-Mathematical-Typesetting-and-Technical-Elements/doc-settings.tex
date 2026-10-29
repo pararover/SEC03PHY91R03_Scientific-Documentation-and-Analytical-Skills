@@ -1,0 +1,37 @@
+\geometry{
+	left    = 2.5cm,
+	top     = 2cm,
+	right   = 1.5cm,
+	bottom  = 2cm,
+}
+
+\setlength{\parskip}{1.0em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO,LE]{\topicTitle}
+\fancyhead[RE,LO]{\docType}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\pagenumbering{arabic}
+
+\everymath{\displaystyle}
+
+\setlength{\parindent}{0pt}
+
+% Custom styling for the LaTeX code block
+\lstset{
+	language=[LaTeX]TeX,
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{blue},
+	commentstyle=\color{gray},
+	breaklines=true,
+	frame=single,
+	columns=fullflexible,
+	keepspaces=true,
+	tabsize=2,
+	breakindent=0pt,
+	breakautoindent=false
+}
