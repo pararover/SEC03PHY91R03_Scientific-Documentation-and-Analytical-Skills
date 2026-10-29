@@ -18,3 +18,13 @@
 	}%
 	\par
 }
+
+\newcommand{\lstoutputraw}[1]{%
+	\par\noindent
+	\fbox{%
+		\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+			{#1}%
+		}%
+	}%
+	\par
+}

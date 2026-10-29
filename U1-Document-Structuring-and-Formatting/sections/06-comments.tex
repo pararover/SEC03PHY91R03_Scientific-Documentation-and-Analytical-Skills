@@ -1,3 +1,21 @@
-\section{Including comments}
-
-	Insert section content.
+\section{Using comments in \LaTeX}
+	In \LaTeX, \emph{comments} allow authors to insert non-printing notes, suppress undesired whitespace, or temporarily disable sections of code during document development. Comments are ignored by the \LaTeX\ compiler and do not appear in the generated output document.
+	
+	A comment is introduced using the percent character (\%). Upon encountering a \% symbol in standard text mode, \LaTeX\ ignores the \% itself and everything following it on that same line until the end-of-line character.
+	
+	For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-comments.tex}
+	produces the following output:
+	\lstoutput{codes/snippet-comments.tex}
+	
+	\subsection{Utility of comments}
+		As in any programming language, comments in \LaTeX\ have numerous utilities, some of which are outlined below.
+		\begin{enumerate}
+			\item Authors can leave descriptive annotations, structural markers, or to-do notes for themselves or co-authors without affecting the typeset document. \LaTeX\ templates frequently use comments to guide users on required preamble setups or placeholder entries.
+			
+			\item Rather than deleting commands or text paragraphs when testing alternative layouts, authors can ``comment out'' lines by prefixing them with \%. This preserves the original code, allowing it to be easily restored by simply removing the percent sign.
+			
+			\item Because a single line break in source code acts as a space character, placing a \% at the very end of a line (immediately following the last character without an intervening space) masks the newline. This technique is widely used when constructing macros, defining custom environments, or placing inline elements side-by-side where extra whitespace would disrupt alignment or page layout.
+		\end{enumerate}
+	
+	

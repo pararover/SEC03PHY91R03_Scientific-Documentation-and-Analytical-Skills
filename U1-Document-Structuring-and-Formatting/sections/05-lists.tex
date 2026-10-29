@@ -1,3 +1,100 @@
 \section{Creating lists}
+	Lists in \LaTeX\ provide a structured layout to present key points, sequential steps or categorized information. In \LaTeX, all lists are constructed as environments, with each entry marked by the \lstinline|\item| macro.
+	
+	\subsection{Itemized lists}
+		An \emph{itemized list} (or un-numbered list) is used when the order of items is flexible or unimportant. The general syntax for creating an itemized list is:
+\begin{lstlisting}
+	\begin{itemize}
+		\item First item
+		\item Second item
+		\item Third item
+	\end{itemize}
+\end{lstlisting}
+		The above code produces the following output:
+		\lstoutputraw{
+		\begin{itemize}
+			\item First item
+			\item Second item
+			\item Third item
+		\end{itemize}
+		}
+		The default symbol for any entry is a bullet point. However, it can be changed by inserting another symbol as an option to the \lstinline|\item| macro. Some examples are as follows:
+\begin{lstlisting}
+	\begin{itemize}
+		\item[-] First item
+		\item[--] Second item
+		\item[$\circ$] Third item
+		\item[$\diamond$] Fourth item
+		\item[$\star$] Fifth item
+	\end{itemize}
+\end{lstlisting}
+		which produces the output
+		\lstoutputraw{
+		\begin{itemize}
+			\item[-] First item
+			\item[--] Second item
+			\item[$\circ$] Third item
+			\item[$\diamond$] Fourth item
+			\item[$\star$] Fifth item
+		\end{itemize}
+		}
+		
+	\subsection{Enumerated lists}
+		An \emph{enumerated list} (or numbered list) is used when the sequential order of items is essential, such as in step-by-step procedures or rankings. The general syntax for creating an enumerated list is:
+\begin{lstlisting}
+	\begin{enumerate}
+		\item First item
+		\item Second item
+		\item Third item
+	\end{enumerate}
+\end{lstlisting}
+		The above code produces the following output:
+		\lstoutputraw{
+		\begin{enumerate}
+			\item First item
+			\item Second item
+			\item Third item
+		\end{enumerate}
+		}
+		By default, arabic numerals are displayed for any entry. However, it can be changed by including the \lstinline|enumerate| package in the preamble:
+\begin{lstlisting}
+\usepackage{enumerate}
+\end{lstlisting}
+		Following this, the numeral and numbering format can be mentioned as an optional argument to the \lstinline|enumerate| environment. For example, to typeset the numbering using a capital letter from the alphabet followed by a dot, we use the following:
+\begin{lstlisting}
+	\begin{enumerate}[A.]
+		\item First item
+		\item Second item
+	\end{enumerate}
+\end{lstlisting}
+		which produces the output
+		\lstoutputraw{
+		\begin{enumerate}[A.]
+			\item First item
+			\item Second item
+		\end{enumerate}
+		}
+		Again, to typeset the numbering using roman numerals in small letters enclosed in parentheses, we use the following:
+\begin{lstlisting}
+	\begin{enumerate}[(i)]
+		\item First item
+		\item Second item
+		\item Third item
+	\end{enumerate}
+\end{lstlisting}
+which produces the output
+\lstoutputraw{
+	\begin{enumerate}[i)]
+		\item First item
+		\item Second item
+		\item Third item
+	\end{enumerate}
+}
 
-	Insert section content.
+	\subsection{Nested lists}
+		Lists can be \emph{nested} by placing a child list environment directly beneath an \lstinline|\item| of a parent list. It is possible to nest homogeneous lists (e.g. \verb|itemize| inside \verb|itemize|, or \verb|enumerate| inside \verb|enumerate|) or heterogeneous lists (e.g. \verb|itemize| inside \verb|enumerate| or vice versa).
+		
+		The following code demonstrates some nested lists:
+\lstinputlisting{codes/snippet-nested-lists}
+		which produces the following output:
+		\lstoutput{codes/snippet-nested-lists}

@@ -1,3 +1,25 @@
 \section{Labels and cross-referencing}
-
-	Insert section content.
+	In \LaTeX, cross-referencing allows authors to refer dynamically to numbered document elements (such as chapters, sections, figures, tables, equations, footnotes and list items) without manually hardcoding numbers. When structural elements are inserted, deleted or reordered, \LaTeX\ automatically re-evaluates all counter positions and updates references across the document.
+	
+	\subsection{Macros for cross-referencing}
+		Cross-referencing in standard \LaTeX\ relies on three fundamental commands:
+		\begin{enumerate}
+			\item \lstinline|\label{key}|: This assigns a unique symbolic identifier (or \verb|key|) to the currently active structural element or counter at that exact position in the source text.
+			\item \lstinline|\ref{key}|: This retrieves and prints the logical sequence number associated with \verb|key|.
+			\item \lstinline|\pageref{key}|: This retrieves and prints the page number on which the corresponding \lstinline|\label{key}| command is located.
+		\end{enumerate}
+		
+	\subsection{Placement rules and conventions}
+		\begin{itemize}
+			\item The \lstinline|\label| macro must be placed immediately after (or within) the command or environment that updates the active reference counter.
+			\item In floating environments (such as \verb|figure| or \verb|table|), \lstinline|\label| must follow the \lstinline|\caption| command; placing \lstinline|\label| before \lstinline|\caption| incorrectly binds the key to the enclosing section counter rather than the figure or table counter.
+			\item Although keys can be named arbitrarily, establishing consistent prefix conventions prevents duplicate keys and improves code maintainability:
+			\begin{itemize}
+				\item \verb|sec:| for chapters and sections (e.g. \verb|sec:intro|)
+				\item \verb|fig:| for figures (e.g. \verb|fig:chart|)
+				\item \verb|tab:| for tables (e.g. \verb|tab:data|)
+				\item \verb|eq:| for mathematical equations (e.g., \verb|eq:einstein|)
+				\item \verb|item:| for enumerated list entries (e.g. \verb|item:step1|)
+				\item \verb|fn:| for footnotes (e.g. \verb|fn:note1|)
+			\end{itemize}
+		\end{itemize}
