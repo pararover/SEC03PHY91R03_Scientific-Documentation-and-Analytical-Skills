@@ -1,10 +1,20 @@
 \newcommand{\lagrangian}{\mathscr{L}}
 \newcommand{\hamiltonian}{\mathscr{H}}
 
-\newcommand{\lstoutput}[1]{\\
+%\newcommand{\lstoutput}[1]{\\
+%	\fbox{%
+%		\vbox{%
+%			\input{#1}%
+%		}%
+%	}
+%}
+
+\newcommand{\lstoutput}[1]{%
+	\par\noindent
 	\fbox{%
-		\vbox{%
+		\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
 			\input{#1}%
 		}%
-	}
+	}%
+	\par
 }

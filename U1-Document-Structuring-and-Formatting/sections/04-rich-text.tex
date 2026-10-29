@@ -1,2 +1,171 @@
 \section{Rich text formatting}
-	In document design, \emph{rich text formatting} refers to the enhancement of plain text through typographical variations, such as changes in font weight, posture, family, size, or color, so as to establish visual hierarchy, emphasize key terms, or distinguish specific content elements. Rich text formatting in \LaTeX\ is achieved by enclosing target text within dedicated styling commands or using semantic markup directly inside the plain-text source file.
+	%In document design, \emph{rich text formatting} refers to the enhancement of plain text through typographical variations, such as changes in font weight, posture, family, size, or color, so as to establish visual hierarchy, emphasize key terms, or distinguish specific content elements. Rich text formatting in \LaTeX\ is achieved by enclosing target text within dedicated styling commands or using semantic markup directly inside the plain-text source file.
+	In \LaTeX, \emph{rich text formatting} modifies font shape, weight, and decoration to establish visual hierarchy and highlight specific text elements. Rather than applying arbitrary physical changes directly, \LaTeX\ distinguishes between physical font styling (direct typeface modifications) and semantic/logical emphasis.
+	
+	\subsection{Typeface modification syntax}
+		Typeface-changing mechanisms in \LaTeX\ generally come in two distinct syntactical forms:
+		\begin{enumerate}
+			\item \emph{Argument-based font commands}: This formatting applies strictly to the text inside the curly braces \{ \}. Once the closing brace is reached, \LaTeX\ automatically resumes the previous text formatting.
+			
+			The general syntax is: \lstinline|\textXX{argument}|\\
+			where \verb|XX| could be replaced with \verb|it| for \textit{italics}, \verb|bf| for \textbf{boldface} and \verb|tt| for \texttt{teletype}.
+			
+			For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-textXX.tex}
+			produces the following output:
+			\lstoutput{codes/snippet-textXX.tex}
+			
+			\item \emph{State-switching font declarations}: Such declarations take no arguments. Instead, they act as switches that alter the formatting of all subsequent text. To limit their scope, declarations must be enclosed within a pair of curly braces \{ \} or an environment to form a local group.
+			
+			The general syntax is: \lstinline|\XXshape| or \lstinline|\XXseries|
+			
+			For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-XXseries-shape.tex}
+			produces the following output:
+			\lstoutput{codes/snippet-XXseries-shape.tex}
+		\end{enumerate}
+		
+	\subsection{Font families}
+		A \emph{typeface} is a visual design for letters, such as Computer Modern or Times. In \LaTeX, a typeface is organised as a \emph{font family}, which comprises of the design, together with all of its variants (upright, italic, bold, small capitals, and so on). A \emph{font} is one concrete member of a family at a specific size,
+		for example ``Computer Modern Roman, bold, 12\,pt''.
+		
+		Every \LaTeX{} document works with three logical families:
+		\begin{enumerate}
+			\item Roman family
+			\begin{center}
+				\Large\rmfamily{This is written with Roman font family.}
+			\end{center}
+			\begin{itemize}
+				\item Such font has small lines or \emph{strokes}, known as \emph{serifs}, which are attached to letters.
+				\item This is generally used to typeset printed documents, such as reports, articles or letters.
+				\item In \LaTeX, this is the default font.
+			\end{itemize}
+			
+			\item Sans serif family
+			\begin{center}
+				\Large\sffamily{This is written with sans serif font family.}
+			\end{center}
+			\begin{itemize}
+				\item In such font, the strokes or serifs are missing.
+				\item This is generally used to typeset digital display content, such as slides and social media flyers.
+			\end{itemize}
+			
+			\item Typewriter (or teletype) family
+			\begin{center}
+				\Large\ttfamily{This is written with typewriter font family.}
+			\end{center}
+			\begin{itemize}
+				\item In such font, all the characters are monospaced, i.e. have the same width.
+				\item This is generally used to typeset URLs (i.e. webpage links) and program codes.
+			\end{itemize}
+		\end{enumerate}
+		
+		In the table below, the font commands and declarations for the differen font families are given
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{lll}
+				\toprule[1.5pt]
+				\textbf{Command} & \textbf{Declaration} & \textbf{Meaning} \\
+				\midrule
+				{\lstinline|\textrm{...}|} & {\lstinline|\rmfamily|} & {\textrm{roman family}} \\
+				{\lstinline|\textsf{...}|} & {\lstinline|\sffamily|} & {\textsf{sans-serif family}} \\
+				{\lstinline|\texttt{...}|} & {\lstinline|\ttfamily|} & {\texttt{typewriter family}} \\
+				{\lstinline|\textbf{...}|} & {\lstinline|\bfseries|} & {\textbf{boldface font}} \\
+				{\lstinline|\textmd{...}|} & {\lstinline|\mdseries|} & {\textmd{medium font}} \\
+				{\lstinline|\textit{...}|} & {\lstinline|\itshape|} & {\textit{italic shape}} \\
+				{\lstinline|\textsl{...}|} & {\lstinline|\slshape|} & {\textsl{slanted shape}} \\
+				{\lstinline|\textsc{...}|} & {\lstinline|\scshape|} & {\textsc{Small Caps shape}} \\
+				{\lstinline|\textup{...}|} & {\lstinline|\upshape|} & {\textsc{upright shape}} \\
+				{\lstinline|\textnormal{...}|} & {\lstinline|\normalfont|} & {\textnormal{default font}} \\
+				\bottomrule[1.5pt]
+			\end{tabular}
+		\end{table}
+		
+		%The actual typeface behind each one is set by the document class and loaded packages, so the same command gives different results in different documents.
+		
+%		\begin{center}
+%			\begin{tabular}{@{}llll@{}}
+%				\toprule
+%				Logical family & Declaration & Argument form & Default design \\
+%				\midrule
+%				Roman (serif) & \verb|\rmfamily| & \verb|\textrm{...}| & Computer Modern Roman \\
+%				Sans serif & \verb|\sffamily| & \verb|\textsf{...}| & Computer Modern Sans \\
+%				Typewriter & \verb|\ttfamily| & \verb|\texttt{...}| & Computer Modern Typewriter \\
+%				\bottomrule
+%			\end{tabular}
+%		\end{center}
+
+	\subsection{Font sizes in \LaTeX}
+		A \LaTeX\ document has a base font size, which holds good for the entire document. The standard document classes support three base font sizes: \verb|10pt| (default), \verb|11pt| and \verb|12pt|.\vspace{-2.5ex}
+		\begin{itemize}
+			\item For other standard base sizes, we can use the \verb|extsizes| package.
+		\end{itemize}
+		
+		Once a base font size is set for a document, there are 10 font size declarations which modify the font size of the text within a local scope to further modify their sizes, relative the base font size. These size declarations are demonstrated in the table below.
+		\begin{table}[h!]
+			\centering
+			\renewcommand{\arraystretch}{2.0}
+			\begin{tabular}{lll}
+				\toprule[1.5pt]
+				\textbf{Declaration} & \textbf{Example} & \textbf{Effect} \\
+				\midrule
+				{\lstinline|\tiny|} & {\lstinline|{\tiny Tiny text}|} & {\tiny Tiny text} \\
+				{\lstinline|\scriptsize|} & {\lstinline|{\scriptsize Script-size text}|} & {\scriptsize Script-size text} \\
+				{\lstinline|\footnotesize|} & {\lstinline|{\footnotesize Footnote-size text}|} & {\footnotesize Footnote-size text} \\
+				{\lstinline|\small|} & {\lstinline|{\small Small text}|} & {\small Small text} \\
+				{\lstinline|\normalsize|} & {\lstinline|{\normalsize Default text}|} & {\normalsize Default text} \\
+				{\lstinline|\large|} & {\lstinline|{\large Large text}|} & {\large Large text} \\
+				{\lstinline|\Large|} & {\lstinline|{\Large Larger text}|} & {\Large Larger text} \\
+				{\lstinline|\LARGE|} & {\lstinline|{\LARGE Even larger text}|} & {\LARGE Even larger text} \\
+				{\lstinline|\huge|} & {\lstinline|{\huge Huge text}|} & {\huge Huge text} \\
+				{\lstinline|\Huge|} & {\lstinline|{\Huge More huge text}|} & {\Huge More huge text} \\
+				\bottomrule[1.5pt]
+			\end{tabular}
+		\end{table}
+		
+	\subsection{Underlining text}
+		The built-in macro \lstinline|\underline{...}| draws a straight horizontal line under its argument. However, this does not allow automatic line breaking or hyphenation across long passages.
+		
+		For enhanced underlining, we can use the \lstinline|ulem| package which allows multi-line underlined text with automatic hyphenation. To do so, first we need to include the following line in the preamble (anywhere below the \lstinline|\documentclass| macro):
+\begin{lstlisting}
+\usepackage[normalem]{ulem}
+\end{lstlisting}
+		following which we can use different macros that provide us with many options for underlines and other decorations. Some of the popular macros are given in the following table.
+		\begin{table}[h!]
+			\centering
+			\renewcommand{\arraystretch}{1.4}
+			\begin{tabular}{lll}
+				\toprule[1.5pt]
+				\textbf{Macro} & \textbf{Example} & \textbf{Effect} \\
+				\midrule
+				{\lstinline|\uline{...}|} & {\lstinline|\uline{Underlined text}|} & {\uline{Underlined text}} \\
+				{\lstinline|\uuline{...}|} & {\lstinline|\uuline{Double underlined text}|} & {\uuline{Double underlined text}} \\
+				{\lstinline|\uwave{...}|} & {\lstinline|\uwave{Wavy underlined text}|} & {\uwave{Wavy underlined text}} \\
+				{\lstinline|\sout{...}|} & {\lstinline|\sout{Struck-out text}|} & {\sout{Struck-out text}} \\
+				{\lstinline|\xout{...}|} & {\lstinline|\xout{Crossed-out text}|} & {\xout{Crossed-out text}} \\
+				\bottomrule[1.5pt]
+			\end{tabular}
+		\end{table}
+		
+	\subsection{Text emphasis}
+		To draw attention to a word or phrase, we can use the \lstinline|\emph{...}| macro. This is a \emph{logical markup} which says that the text within \{ \} is emphasized and leaves it to \LaTeX\ to decide how it does so. For instance, the following
+\begin{lstlisting}
+This is \emph{very} important!
+\end{lstlisting}
+		produces the output
+		\begin{center}
+			This is \emph{very} important!
+		\end{center}
+		
+		\paragraph*{Difference between emphasis and italics:}
+		The \verb|\textit| macro always selects the italic shape, regardless of the surroundings, while the \verb|\emph| macro toggles relative to the current shape:
+		\begin{itemize}
+			\item inside upright text it switches to italic
+			\item inside italic text it switches back to upright
+		\end{itemize}
+		This keeps the emphasis visible when it is nested or placed in an italic context, such as the body of a theorem.
+		
+		For instance, the following \LaTeX\ code snippet:
+\lstinputlisting{codes/snippet-emphasis-italic.tex}
+		produces the following output:
+		\lstoutput{codes/snippet-emphasis-italic.tex}
