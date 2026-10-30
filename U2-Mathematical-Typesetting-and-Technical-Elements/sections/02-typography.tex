@@ -11,11 +11,80 @@
 		\lstoutput{codes/snippet-sup-sub}
 	
 	\subsection{Fractions and roots}
+		In \LaTeX, fractions are typeset using the \lstinline|\frac| macro. The general syntax is
+\begin{lstlisting}
+	\frac{numerator}{denominator}
+\end{lstlisting}
+		For fractions contained inline, where vertical space is limited, standard slash notation \lstinline|a/b| or the \lstinline|\tfrac{num}{den}| macro can be used.
+		
+		For instance, the following code contains examples of typesetting fractions
+\lstinputlisting{codes/snippet-fraction}
+		which produces the output
+		\lstoutput{codes/snippet-fraction}
+		
+		\LaTeX\ allows us to typeset the square root using the \lstinline|\sqrt| macro which has the general syntax as
+\begin{lstlisting}
+	\sqrt{expression}
+\end{lstlisting}
+		The \lstinline|\sqrt| macro can be extended to typeset the $n^\text{th}$ root using an optional argument. The general syntax for this is
+\begin{lstlisting}
+	\sqrt[n]{expression}
+\end{lstlisting}
+		
+		For instance, the following code contains examples of typesetting roots
+\lstinputlisting{codes/snippet-root}
+		which produces the output
+		\lstoutput{codes/snippet-root}
 	
 	\subsection{Pre-defined functions and operators}
+		Standard mathematical functions (such as trigonometric, logarithmic and limit operators) must not be typed as plain text in math mode; otherwise, \LaTeX\ would render them in variable italics. For example, \lstinline|sin(x)| typesets as a product of $s$, $i$ and $n$. Hence to render this correctly in upright roman typeface with appropriate surrounding whitespace, \LaTeX\ provides pre-defined operator macros for a bunch of functions as given below.
+		\begin{itemize}
+			\item \emph{Trigonometric and hyperbolic functions}: \lstinline|\sin|, \lstinline|\cos|, \lstinline|\tan|, \lstinline|\arcsin|, \lstinline|\arccos|, \lstinline|\arctan|,\\ \lstinline|\sinh|, \lstinline|\cosh|, \lstinline|\tanh|
+			
+			\item \emph{Logarithmic and exponential functions}: \lstinline|\exp|, \lstinline|\log|, \lstinline|\ln|
+			
+			\item \emph{Limits and optimization}: \lstinline|\lim|, \lstinline|\min|, \lstinline|\max|, \lstinline|\sup|, \lstinline|\inf|
+			
+			\item \emph{Linear algebra}: \lstinline|\det|, \lstinline|\ker|, \lstinline|\deg|
+		\end{itemize}
 	
 	\subsection{Summation, product and integral operators}
+		In \LaTeX, the summation, product and integral operators are typeset using the \lstinline|\sum|, \lstinline|\prod| and \lstinline|\int| macros. These are variable-sized operators and get rendered in different sizes, depending on whether they are in the inline or display modes.
+		
+		The following code typesets these in the inline mode:
+\begin{lstlisting}
+$\sum_{i=1}^{N}(2i-1)$, $\prod_{k=1}^{N}\frac{1}{2^k}$ and $\int_{0}^{5}e^{-x}dx$
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		$\sum_{i=1}^{N}(2i-1)$, $\prod_{k=1}^{N}\frac{1}{2^k}$ and $\int_{0}^{5}e^{-x}dx$
+		}
+		
+		In display math mode, variable-sized operators render larger than in inline mode, and their limits adjust automatically. The following code typesets the above expressions in the display mode:
+\begin{lstlisting}
+$$\sum_{i=1}^{N}(2i-1)$$ $$\prod_{k=1}^{N}\frac{1}{2^k}$$ $$\int_{0}^{5}e^{-x}dx$$
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+			$$\sum_{i=1}^{N}(2i-1)$$ $$\prod_{k=1}^{N}\frac{1}{2^k}$$ $$\int_{0}^{5}e^{-x}dx$$
+		}
 	
 	\subsection{Greek letters}
+		In physics, letters from the Greek alphabet are widely used to represent various physical quantities. In \LaTeX, lowercase Greek letters are typeset by prefixing the letter's English name with a backslash, as given in the following macros:
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{|cc|cc|cc|cc|}
+				\hline
+				\textbf{Letter} & \textbf{Macro} & \textbf{Letter} & \textbf{Macro} & \textbf{Letter} & \textbf{Macro} & \textbf{Letter} & \textbf{Macro} \\
+				\hline
+				{$\alpha$} & {\lstinline|\alpha|} & {$\eta$} & {\lstinline|\eta|} & {$\nu$} & {\lstinline|\nu|} & {$\upsilon$} & {\lstinline|\upsilon|} \\
+				{$\beta$} & {\lstinline|\beta|} & {$\theta$} & {\lstinline|\theta|} & {$\xi$} & {\lstinline|\xi|} & {$\phi$} & {\lstinline|\phi|} \\
+				{$\gamma$} & {\lstinline|\gamma|} & {$\iota$} & {\lstinline|\iota|} & {$\pi$} & {\lstinline|\pi|} & {$\chi$} & {\lstinline|\chi|} \\
+				{$\delta$} & {\lstinline|\delta|} & {$\kappa$} & {\lstinline|\kappa|} & {$\rho$} & {\lstinline|\rho|} & {$\psi$} & {\lstinline|\psi|} \\
+				{$\epsilon$} & {\lstinline|\epsilon|} & {$\lambda$} & {\lstinline|\lambda|} & {$\sigma$} & {\lstinline|\sigma|} & {$\omega$} & {\lstinline|\omega|} \\
+				{$\zeta$} & {\lstinline|\zeta|} & {$\mu$} & {\lstinline|\mu|} & {$\tau$} & {\lstinline|\tau|} & {} & {} \\
+				\hline
+			\end{tabular}
+		\end{table}
 	
 	\subsection{Mathematical fonts}
