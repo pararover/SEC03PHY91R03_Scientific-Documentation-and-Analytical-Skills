@@ -1,2 +1,87 @@
-\section{Overview}
-	Insert content.
+\section{Overview of math mode in \LaTeX}
+	In \LaTeX, the typesetting of mathematical expressions requires entering a dedicated operating environment known as \emph{math mode}. In math mode, \LaTeX\ does the following
+	\begin{itemize}
+		\item Treats alphabet symbols as mathematical variables.
+		\item Typesets letters in italics by default.
+		\item Ignores standard whitespace characters.
+		\item Adjusts spacing between symbols dynamically based on their semantic classification, such as operators, relations and delimiters.
+	\end{itemize}
+	
+	\subsection{Inline math mode}
+		Inline math mode is used to embed short mathematical expressions and variables directly within a sentence without disrupting the paragraph flow. We can typeset a mathematical expression in inline mode using any of the following syntax:
+		\begin{enumerate}
+			\item Enclosing the expression within \lstinline|$...$|, for example \lstinline|$F=ma$|.
+			\item Enclosing the expression within \lstinline|\(...\)|, for example \lstinline|\(p=mv\)|.
+			\item Placing the expression within the \lstinline|math| environment, for example\\
+			\lstinline|\begin{math}|\\
+			\lstinline|    U=mgh|\\
+			\lstinline|\end{math}|
+		\end{enumerate}
+		
+		For instance, the following code contains all of the above three syntax
+\begin{lstlisting}
+In classical mechanics, an object's translational motion and energetic state near Earth's surface can be characterized by Newton's second law of motion $F=ma$, linear momentum \(p=mv\), and gravitational potential energy
+\begin{math}
+	U=mgh
+\end{math}.
+\end{lstlisting}
+		which produces the following output:
+		\lstoutputraw{
+		In classical mechanics, an object's translational motion and energetic state near Earth's surface can be characterized by Newton's second law of motion $F=ma$, linear momentum \(p=mv\), and gravitational potential energy
+		\begin{math}
+			U=mgh
+		\end{math}.
+		}
+		
+%		Inline mode constrains symbol heights to maintain uniform vertical line spacing in the surrounding paragraph, and so expressions such as fractions, limits, summations and integrals are scaled down accordingly. This can be observed in the following code
+%\begin{lstlisting}
+%The sum of the first $n$ odd numbers is obtained as $\sum_{k=1}^{2n}{(2k-1)}=n^2$ and the indefinite integral of the reciprocal function is $\int{\frac{dx}{x}}=\ln{x}$.
+%\end{lstlisting}
+%		which produces the following output:
+%		\lstoutputraw{
+%		The sum of the first $n$ odd numbers is obtained as $\sum_{k=1}^{2n}{(2k-1)}=n^2$ and the indefinite integral of the reciprocal function is $\int{\frac{dx}{x}}=\ln{x}$.
+%		}
+	
+	\subsection{Display math mode}
+		Display math mode is used for prominent, complex or multi-line equations that require dedicated vertical separation, centered alignment and full symbol scaling.
+		
+		For display mode, we have two types of syntax:
+		\begin{enumerate}
+			\item \emph{Un-numbered display syntax}:
+			\begin{enumerate}
+				\item Enclosing the expression within \lstinline|$$...$$|, for example \lstinline|$$F=ma$$|.
+				\item Enclosing the expression within \lstinline|\[...\]|, for example \lstinline|\[p=mv\]|.
+				\item Placing the expression within the \lstinline|displaymath| environment, for example\\
+				\lstinline|\begin{displaymath}|\\
+					\lstinline|    U=mgh|\\
+					\lstinline|\end{displaymath}|
+			\end{enumerate}
+			
+			\item \emph{Numbered display syntax}: Placing the expression within the \lstinline|equation| environment, in which case the equation will also be given a number. For example\\
+			\lstinline|\begin{equation}|\\
+				\lstinline|    T=\frac{1}{2}mv^2|\\
+			\lstinline|\end{equation}|
+		\end{enumerate}
+		
+		For instance, the following code contains all of the above three syntax
+\begin{lstlisting}
+In classical mechanics, an object's translational motion and energetic state near Earth's surface can be characterized by Newton's second law of motion $$F=ma$$ linear momentum \[p=mv\] gravitational potential energy
+\begin{displaymath}
+	U=mgh
+\end{displaymath}
+and kinetic energy
+\begin{equation}
+	T=\frac{1}{2}mv^2
+\end{equation}
+\end{lstlisting}
+		which produces the following output:
+		\lstoutputraw{
+			In classical mechanics, an object's translational motion and energetic state near Earth's surface can be characterized by Newton's second law of motion $$F=ma$$ linear momentum \[p=mv\] gravitational potential energy
+			\begin{displaymath}
+				U=mgh
+			\end{displaymath}
+			and kinetic energy
+			\begin{equation}
+				T=\frac{1}{2}mv^2
+			\end{equation}
+		}
