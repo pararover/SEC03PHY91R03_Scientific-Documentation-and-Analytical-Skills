@@ -42,6 +42,7 @@ In classical mechanics, an object's translational motion and energetic state nea
 %		The sum of the first $n$ odd numbers is obtained as $\sum_{k=1}^{2n}{(2k-1)}=n^2$ and the indefinite integral of the reciprocal function is $\int{\frac{dx}{x}}=\ln{x}$.
 %		}
 	
+	\newpage
 	\subsection{Display math mode}
 		Display math mode is used for prominent, complex or multi-line equations that require dedicated vertical separation, centered alignment and full symbol scaling.
 		
@@ -61,6 +62,10 @@ In classical mechanics, an object's translational motion and energetic state nea
 			\lstinline|\begin{equation}|\\
 				\lstinline|    T=\frac{1}{2}mv^2|\\
 			\lstinline|\end{equation}|
+			\emph{Note}: The numbering of the equation can be suppressed by using the \lstinline|equation*| environment, with an asterisk (*) appended. For example\\
+			\lstinline|\begin{equation*}|\\
+				\lstinline|    E=mgh+\frac{1}{2}mv^2|\\
+			\lstinline|\end{equation*}|
 		\end{enumerate}
 		
 		For instance, the following code contains all of the above three syntax
@@ -73,6 +78,10 @@ and kinetic energy
 \begin{equation}
 	T=\frac{1}{2}mv^2
 \end{equation}
+with the mechanical energy
+\begin{equation*}
+	E=mgh+\frac{1}{2}mv^2
+\end{equation*}
 \end{lstlisting}
 		which produces the following output:
 		\lstoutputraw{
@@ -84,4 +93,8 @@ and kinetic energy
 			\begin{equation}
 				T=\frac{1}{2}mv^2
 			\end{equation}
+			with the mechanical energy
+			\begin{equation*}
+				E=mgh+\frac{1}{2}mv^2
+			\end{equation*}
 		}

@@ -1,0 +1,143 @@
+\section{Typesetting matrices in \LaTeX}
+	The \lstinline|amsmath| package provides commands to typeset matrices with different delimiters. Once the \lstinline|amsmath| package has been included in the preamble, different types of matrices can be typeset using different environments. Each of these environments have to be wrapped inside an outer math environment, such as \lstinline|equation| and \lstinline|align|.
+	
+	The general syntax is shown below:
+\begin{lstlisting}
+	\begin{matrix environment name}
+		{row 1, col 1} & {row 1, col 2} & {...} & {row 1, col n} \\
+		{row 2, col 1} & {row 2, col 2} & {...} & {row 2, col n} \\
+		{...} & {...} & {...} & {...} \\
+		{row m, col 1} & {row m, col 2} & {...} & {row m, col n}
+	\end{matrix environment name}
+\end{lstlisting}
+	\subsection{Plain matrix}
+		A \emph{plain matrix} is one in which the elements are arranged in rows and columns without any enclosing delimiters. For instance, the following code is used to typeset a plain matrix:
+\begin{lstlisting}
+\begin{equation*}
+	\begin{matrix}
+		{1} & {-9} & {5} \\
+		{4} & {8} & {-2} \\
+		{-6} & {3} & {7}
+	\end{matrix}
+\end{equation*}
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		\begin{equation*}
+			\begin{matrix}
+				{1} & {-9} & {5} \\
+				{4} & {8} & {-2} \\
+				{-6} & {3} & {7}
+			\end{matrix}
+		\end{equation*}
+		}
+	
+	\subsection{Parentheses matrix}
+		A \emph{parentheses matrix} is one in which the elements are arranged in rows and columns, enclosed within variable sized parentheses \lstinline|( )| as delimiters. For instance, the following code is used to typeset a parentheses matrix:
+\begin{lstlisting}
+\begin{equation*}
+	\begin{pmatrix}
+		{1} & {-9} & {5} \\
+		{4} & {8} & {-2} \\
+		{-6} & {3} & {7}
+	\end{pmatrix}
+\end{equation*}
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		\begin{equation*}
+			\begin{pmatrix}
+				{1} & {-9} & {5} \\
+				{4} & {8} & {-2} \\
+				{-6} & {3} & {7}
+			\end{pmatrix}
+		\end{equation*}
+		}
+		
+	\subsection{Brackets matrix}
+		A \emph{brackets matrix} is one in which the elements are arranged in rows and columns, enclosed within variable sized brackets \lstinline|[ ]| as delimiters. For instance, the following code is used to typeset a brackets matrix:
+\begin{lstlisting}
+\begin{equation*}
+	\begin{bmatrix}
+		{1} & {-9} & {5} \\
+		{4} & {8} & {-2} \\
+		{-6} & {3} & {7}
+	\end{bmatrix}
+\end{equation*}
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		\begin{equation*}
+			\begin{bmatrix}
+				{1} & {-9} & {5} \\
+				{4} & {8} & {-2} \\
+				{-6} & {3} & {7}
+			\end{bmatrix}
+		\end{equation*}
+		}
+		
+	\subsection{Braces matrix}
+		A \emph{braces matrix} is one in which the elements are arranged in rows and columns, enclosed within variable sized braces \lstinline|{ }| as delimiters. For instance, the following code is used to typeset a braces matrix:
+\begin{lstlisting}
+	\begin{equation*}
+		\begin{Bmatrix}
+			{1} & {-9} & {5} \\
+			{4} & {8} & {-2} \\
+			{-6} & {3} & {7}
+		\end{Bmatrix}
+	\end{equation*}
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		\begin{equation*}
+			\begin{Bmatrix}
+				{1} & {-9} & {5} \\
+				{4} & {8} & {-2} \\
+				{-6} & {3} & {7}
+			\end{Bmatrix}
+		\end{equation*}
+		}
+		
+	\subsection{Pipes matrix}
+		A \emph{pipes matrix} is one in which the elements are arranged in rows and columns, enclosed within variable sized pipes | | as delimiters. For instance, the following code is used to typeset a pipes matrix:
+\begin{lstlisting}
+\begin{equation*}
+	\begin{vmatrix}
+		{1} & {-9} & {5} \\
+		{4} & {8} & {-2} \\
+		{-6} & {3} & {7}
+	\end{vmatrix}
+\end{equation*}
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		\begin{equation*}
+			\begin{vmatrix}
+				{1} & {-9} & {5} \\
+				{4} & {8} & {-2} \\
+				{-6} & {3} & {7}
+			\end{vmatrix}
+		\end{equation*}
+		}
+		
+	\subsection{Double-pipes matrix}
+		A \emph{double pipes matrix} is one in which the elements are arranged in rows and columns, enclosed within variable sized double-pipes || || as delimiters. For instance, the following code is used to typeset a double-pipes matrix:
+\begin{lstlisting}
+\begin{equation*}
+	\begin{Vmatrix}
+		{1} & {-9} & {5} \\
+		{4} & {8} & {-2} \\
+		{-6} & {3} & {7}
+	\end{Vmatrix}
+\end{equation*}
+\end{lstlisting}
+		which gives the following output:
+		\lstoutputraw{
+		\begin{equation*}
+			\begin{Vmatrix}
+				{1} & {-9} & {5} \\
+				{4} & {8} & {-2} \\
+				{-6} & {3} & {7}
+			\end{Vmatrix}
+		\end{equation*}
+		}

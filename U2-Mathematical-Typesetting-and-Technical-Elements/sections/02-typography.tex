@@ -70,7 +70,7 @@ $$\sum_{i=1}^{N}(2i-1)$$ $$\prod_{k=1}^{N}\frac{1}{2^k}$$ $$\int_{0}^{5}e^{-x}dx
 		}
 	
 	\subsection{Greek letters}
-		In physics, letters from the Greek alphabet are widely used to represent various physical quantities. In \LaTeX, lowercase Greek letters are typeset by prefixing the letter's English name with a backslash, as given in the following macros:
+		In physics, letters from the Greek alphabet are widely used to represent various physical quantities. In \LaTeX, lowercase Greek letters are typeset by prefixing the letter's English name with a backslash, as given in the following table:
 		\begin{table}[h!]
 			\centering
 			\begin{tabular}{|cc|cc|cc|cc|}
@@ -86,5 +86,35 @@ $$\sum_{i=1}^{N}(2i-1)$$ $$\prod_{k=1}^{N}\frac{1}{2^k}$$ $$\int_{0}^{5}e^{-x}dx
 				\hline
 			\end{tabular}
 		\end{table}
+		
+		For the uppercase Greek letters that do not resemble any of the letters from the English alphabet, the typesetting is done in \LaTeX\ by capitalizing the first letter of the macro for the same lowercase letter. For instance, when the macro for the lowercase lambda $\lambda$, which is \lstinline|\lambda|, is capitalized as \lstinline|\Lambda|, we obtain the uppercase lambda $\Lambda$.
+		
+		The following table provides the macros for the uppercase Greek letters.
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{|cc|cc|cc|cc|}
+				\hline
+				\textbf{Letter} & \textbf{Macro} & \textbf{Letter} & \textbf{Macro} & \textbf{Letter} & \textbf{Macro} & \textbf{Letter} & \textbf{Macro} \\
+				\hline
+				{$\Gamma$} & {\lstinline|\Gamma|} & {$\Lambda$} & {\lstinline|\Lambda|} & {$\Sigma$} & {\lstinline|\Sigma|} & {$\Psi$} & {\lstinline|\Psi|} \\
+				{$\Delta$} & {\lstinline|\Delta|} & {$\Xi$} & {\lstinline|\Xi|} & {$\Upsilon$} & {\lstinline|\Upsilon|} & {$\Omega$} & {\lstinline|\Omega|} \\
+				{$\Theta$} & {\lstinline|\Theta|} & {$\Pi$} & {\lstinline|\Pi|} & {$\Phi$} & {\lstinline|\Phi|} & {} & {} \\
+				\hline
+			\end{tabular}
+		\end{table}
 	
 	\subsection{Mathematical fonts}
+		To represent specific mathematical structures (such as sets, vector spaces, or Lie algebras), \LaTeX\ provides the following specialized math font commands.
+		\begin{table}[h!]
+			\centering
+			\begin{tabular}{lllll}
+				\toprule[1.5pt]
+				\textbf{Math font class} & \textbf{Package} & \textbf{Macro} & \textbf{Example} & \textbf{Result} \\
+				\midrule
+				{Calligraphic} & {\lstinline|amsmath|} & {\lstinline|\mathcal|} & {\lstinline|\mathcal{A,B,C}|} & {$\mathcal{A,B,C}$} \\
+				{Blackboard bold} & {\lstinline|amssymb|} & {\lstinline|\mathbb|} & {\lstinline|\mathbb{R,N,Z}|} & {$\mathbb{R,N,Z}$} \\
+				{Double stroke} & {\lstinline|dsfont|} & {\lstinline|\mathds|} & {\lstinline|\mathds{P,Q,R}|} & {$\mathds{P,Q,R}$} \\
+				{Fraktur/Gothic} & {\lstinline|eufrak|} & {\lstinline|\mathfrak|} & {\lstinline|\mathfrak{g,H,K}|} & {$\mathfrak{g,H,K}$} \\
+				\bottomrule[1.5pt]
+			\end{tabular}
+		\end{table}

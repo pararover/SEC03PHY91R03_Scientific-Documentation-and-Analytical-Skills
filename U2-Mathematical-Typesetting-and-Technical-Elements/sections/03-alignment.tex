@@ -1,0 +1,126 @@
+\section{Alignment of mathematical expressions}
+	The \lstinline|amsmath| package provides specialized environments that allow us to structure sophisticated mathematical expressions by splitting them across multiple lines and aligning multiple equations in grids.
+	
+	To use the \lstinline|amsmath| package, we include the following line in the preamble:
+\begin{lstlisting}
+\usepackage{amsmath}
+\end{lstlisting}
+	
+	\subsection{Splitting an equation into multiple lines}
+		Suppose we have a rather long equation whose length exceed the page width, such as that using the code below:
+\begin{lstlisting}
+\begin{equation}
+	(a+b)^{12}=a^{12}+12a^{11}b+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9+66a^2b^{10}+12ab^{11}+b^{12}
+\end{equation}
+\end{lstlisting}
+		which yields the following output that exceeds the margins of the page.
+		\setcounter{equation}{0}
+		\lstoutputraw{
+		\begin{equation}
+			(a+b)^{12}=a^{12}+12a^{11}b+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9+66a^2b^{10}+12ab^{11}+b^{12}
+		\end{equation}
+		}
+		In such scenario, the \lstinline|multline| environment can be used, where the equation can be split using double back-slash (\lstinline|\\|). In this environment, the first line is left-aligned, the final line is right-aligned and intermediate lines are centered. The above long equation can be re-written as shown below:
+\begin{lstlisting}
+\begin{multline}
+	(a+b)^{12}=a^{12}+12a^{11}b \\
+	+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+	+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+	+66a^2b^{10}+12ab^{11}+b^{12}
+\end{multline}
+\end{lstlisting}
+		which gives the following output
+		\setcounter{equation}{0}
+		\lstoutputraw{
+		\begin{multline}
+			(a+b)^{12}=a^{12}+12a^{11}b \\
+			+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+			+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+			+66a^2b^{10}+12ab^{11}+b^{12}
+		\end{multline}
+		}
+		\newpage
+		However if we want all the lines of the equation to be centre aligned instead, then we can use the \lstinline|gathered| environment wrapped within an outer \lstinline|equation| environment, as shown below:
+\begin{lstlisting}
+\begin{equation}
+	\begin{gathered}
+		(a+b)^{12}=a^{12}+12a^{11}b \\
+		+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+		+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+		+66a^2b^{10}+12ab^{11}+b^{12}
+	\end{gathered}
+\end{equation}
+\end{lstlisting}
+		which yields the following output:		
+		\setcounter{equation}{0}
+		\lstoutputraw{
+		\begin{equation}
+			\begin{gathered}
+				(a+b)^{12}=a^{12}+12a^{11}b \\
+				+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+				+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+				+66a^2b^{10}+12ab^{11}+b^{12}
+			\end{gathered}
+		\end{equation}
+		}
+		
+	\subsection{Aligning multiple equations}
+		The most effective way to collect and align multiple equations is by using the \lstinline|align| environment. In this environment, the expressions in different lines are aligned at specified horizontal anchor points marked by ampersands (\lstinline|&|). The lines are broken into rows using double back-slashes (\lstinline|\\|).
+		
+		For example, the long equation from the preceding sub-section can be split and aligned using the \lstinline|align| environment as shown below:
+\begin{lstlisting}
+\begin{align}
+	(a+b)^{12}&=a^{12}+12a^{11}b \\
+	&+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+	&+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+	&+66a^2b^{10}+12ab^{11}+b^{12}
+\end{align}
+\end{lstlisting}
+		which yields the following output:
+		\setcounter{equation}{0}
+		\lstoutputraw{
+		\begin{align}
+			(a+b)^{12}&=a^{12}+12a^{11}b \\
+			&+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+			&+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+			&+66a^2b^{10}+12ab^{11}+b^{12}
+		\end{align}
+		}
+		\newpage
+		As it can be observed, the \lstinline|align| environment numbers each line with unique equation numbers. Such numbering can be suppressed for all the lines by using the \lstinline|align*| instead, as shown below:
+\begin{lstlisting}
+\begin{align*}
+	(a+b)^{12}&=a^{12}+12a^{11}b \\
+	&+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+	&+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+	&+66a^2b^{10}+12ab^{11}+b^{12}
+\end{align*}
+\end{lstlisting}
+		which gives the output:
+		\lstoutputraw{
+		\begin{align*}
+			(a+b)^{12}&=a^{12}+12a^{11}b \\
+			&+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+			&+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \\
+			&+66a^2b^{10}+12ab^{11}+b^{12}
+		\end{align*}
+		}
+		In case we wish to suppress the numbering only on specific lines, then in the \lstinline|align| environment we can use the \lstinline|\nonumber| macro just before the \lstinline|\\| for that line. For example, consider the following code:
+\begin{lstlisting}
+\begin{align}
+	(a+b)^{12}&=a^{12}+12a^{11}b \nonumber\\
+	&+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+	&+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \nonumber\\
+	&+66a^2b^{10}+12ab^{11}+b^{12} \nonumber
+\end{align}
+\end{lstlisting}
+		which gives the following output:
+		\setcounter{equation}{0}
+		\lstoutputraw{
+		\begin{align}
+			(a+b)^{12}&=a^{12}+12a^{11}b \nonumber\\
+			&+66a^{10}b^2+220a^9b^3+495a^8b^4+792a^7b^5 \\
+			&+924a^6b^6+792a^5b^7+495a^4b^8+220a^3b^9 \nonumber\\
+			&+66a^2b^{10}+12ab^{11}+b^{12} \nonumber
+		\end{align}
+		}
