@@ -124,3 +124,46 @@
 			&+66a^2b^{10}+12ab^{11}+b^{12} \nonumber
 		\end{align}
 		}
+		
+		\newpage
+		\emph{Note}: On a personal note, I prefer to use the \lstinline|\align| environment as a one-stop solution for typesetting virtually all of the mathematical expressions. This is because of the versatility which it affords me in terms of aligning expressions and toggling equation numbering on and off.
+		
+		Consequently, I have found the \lstinline|\align| environment to be helpful in the display math mode, particularly for the following scenarios:
+		\begin{enumerate}
+			\item Typesetting a system of equations. For instance, consider the following code:
+\begin{lstlisting}
+\begin{align*}
+	x-3y+4z&=9 \\
+	2x+5y+z&=7 \\
+	-4x-y+z&=3
+\end{align*}
+\end{lstlisting}
+			which yields the following system of linear equations:
+			\lstoutputraw{
+			\begin{align*}
+				x-3y+4z&=9 \\
+				2x+5y+z&=7 \\
+				-4x-y+z&=3
+			\end{align*}
+			}
+			\item Writing out the steps in a derivation. For instance, consider the following code:
+\begin{lstlisting}
+\begin{align*}
+	F&\propto\frac{dp}{dt} \\
+	&=k\frac{dp}{dt} \\
+	&=k\frac{d}{dt}(mv) \\
+	&=km\frac{dv}{dt} \\
+	\implies F&=kma
+\end{align*}
+\end{lstlisting}
+			which yields the following simple derivation:
+			\lstoutputraw{
+			\begin{align*}
+				F&\propto\frac{dp}{dt} \\
+				&=k\frac{dp}{dt} \\
+				&=k\frac{d}{dt}(mv) \\
+				&=km\frac{dv}{dt} \\
+				\implies F&=kma
+			\end{align*}
+			}
+		\end{enumerate}

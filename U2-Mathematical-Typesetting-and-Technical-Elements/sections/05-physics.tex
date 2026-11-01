@@ -11,16 +11,59 @@
 		
 		The \lstinline|siunitx| package enforces the BIPM (International Bureau of Weights and Measures) standards for formatting numbers and units. For physics lab reports and dissertations, it prevents critical formatting errors such as italicizing units, misaligning decimals or using incorrect spacing between values and units.
 		
+		Macros from the \lstinline|siunitx| package work in both text and math modes. The package's engine auto-detects the surrounding environment and ensures that the numbers and units are always typeset in upright roman fonts, regardless of where the macros are placed.
+		
 		\subsubsection{Fundamental macros}
 			The fundamental macros provided by \lstinline|siunitx| handles the spacing as well as the font selection. These are briefly summarised below:
 			\begin{enumerate}
-				\item For standalone numbers
+				\item \emph{Standalone numbers} can be typeset using the \lstinline|\num{value}| macro, where \verb|value| is the numerical value of the number.
+				
+				\item \emph{Standalone units} can be typeset using the \lstinline|\unit{unit macro}| macro, where \verb|unit macro| could be a combination of macros provided by the package.
+				
+				\item \emph{Full quantities}, consisting of numbers and units can be typeset using the\\ \lstinline|\qty{value}{unit macro}|, which takes in two arguments, which are the same as for the standalone number and unit.
 			\end{enumerate}
+			
+		\subsubsection{Scientific notation and uncertainties}
+			Manually handling scientific notation and error values in \LaTeX\ requires tedious formatting. The \lstinline|siunitx| package can parse raw inputs and format them accordingly.
+			
+			\paragraph{Scientific notation:} Numbers are formatted in the correct scientific notation by passing the value argument in base-10 exponent format. For instance, \lstinline|\num{6.67e-11}| is typeset in the scientific notation as \num{6.67e-11}.
+			
+			\paragraph{Uncertainties:} Errors or uncertainties in quantities can be appended to the value argument using the \lstinline|\pm| macro and setting the optional argument \lstinline|separate-uncertainty=true|. For instance, \lstinline|\num[separate-uncertainty=true]{9.81\pm0.03}| is typeset with the value and uncertainty as \num[separate-uncertainty=true]{9.81\pm0.03}.
+			
+			To avoid writing \lstinline|[separate-uncertainty=true]| repeatedly, we can set it globally for the document by including the following line in the preamble:
+\begin{lstlisting}
+\sisetup{separate-uncertainty=true}
+\end{lstlisting}
+			After this, simply typing \lstinline|\num{9.81\pm0.03}| ensures correct typesetting to \num{9.81\pm0.03}.
 	
 	\subsection{The \texttt{physics} package}
-		The \lstinline|physics| package is a popular \LaTeX\ package created by Sergio C. de la Barrera that simplifies and standardizes the typesetting of physics, vector calculus and linear algebra equations.
+		The \lstinline|physics| package was a popular \LaTeX\ package created by Sergio C. de la Barrera that simplified and standardized the typesetting of physics, vector calculus and linear algebra equations. %However, it relies on outdated coding practices that break standard mathematical spacing and silently override core \LaTeX\ commands.
+		
+		%To rebuild the functionalities of the original package without the bugs, the \lstinline|physics2| package was developed by Tingxuan Zhang.
 		
 		To use the \lstinline|physics| package, we include the following line in the preamble:
 \begin{lstlisting}
 \usepackage{physics}
 \end{lstlisting}
+		
+		It must be noted that the macros from the \lstinline|physics| package work in the math mode alone.
+
+		The package is designed to provide shorthand macros for tedious physics notation. Its core functionality covers four main areas:
+		\begin{enumerate}
+			\item \textbf{Vectors:}
+			\begin{itemize}
+				\item Different representations of vectors can be typeset using the \lstinline|$\va{v}$| and \lstinline|$\vb{A}$| macros which are rendered as $\va{v}$ and $\vb{A}$ respectively.
+				\item Unit vectors are typeset using the \lstinline|$\vu{n}$| macro to give $\vu{n}$. Another variation is the \lstinline|$\vu*{n}$| macro which gives the italicized $\vu*{n}$.
+			\end{itemize}
+			\item \textbf{Differentials and derivatives:}
+			\begin{itemize}
+				\item For differentials, the \lstinline|$\dd{x}$| macro typesets as $\dd{x}$.
+				\item Total derivatives are typeset using the \lstinline|$\dv{f}{x}$| macro to give $\dv{f}{x}$.
+				\item Partial derivatives are typeset using the \lstinline|$\pdv{f}{x}$| macro to give $\pdv{f}{x}$.
+				\item Higher order derivatives are typeset by passing the order of the derivatives as an optional argument. For instance, \lstinline|$\dv[3]{f}{x}$| and \lstinline|$\pdv[2]{f}{x}{x}$| typeset as $\dv[3]{f}{x}$ and $\pdv[2]{f}{x}{y}$ respectively.
+			\end{itemize}
+			\item \textbf{Vector calculus:} There are shorthands for the del ($\nabla$) operator in the form of the \lstinline|$\grad{f}$|, \lstinline|$\div{\vb{v}}$| and \lstinline|$\curl{\vb{v}}$| macros which typeset as $\grad{f}$, $\div{\vb{v}}$ and $\curl{\vb{v}}$ respectively.
+			\item \textbf{Variable-sized delimiters:} Using the \lstinline|\qty| macro along with different delimiters, causes the delimiters to be automatically sized so as to match the contents within.
+			
+			For instance, with brackets using \lstinline|$\qty[F-ma]$| and \lstinline|$\qty[F-\dv{v}{t}]$| gives $\qty[F-ma]$ and $\displaystyle\qty[F-\dv{v}{t}]$ respectively. Likewise, for other delimiters.
+		\end{enumerate}
